@@ -21,4 +21,9 @@ module Solution
     self.solve_part_2
     puts "\n"
   end
+
+  def get_input(filename)
+    lines = File.readlines(filename, chomp: true, mode: 'r:bom|utf-8')
+    return lines
+  end
 end

@@ -4,7 +4,7 @@ class Day01
   include Solution
 
   def solve_part_1
-    input = File.readlines @example ? "input/example-01.txt" : "input/input-01.txt"
+    input = get_input(@example ? "input/example-01.txt" : "input/input-01.txt")
     cnt = 0
     for i in 1..input.length
       if input[i].to_i > input[i - 1].to_i
@@ -18,7 +18,7 @@ class Day01
   end
 
   def solve_part_2
-    input = File.readlines @example ? "input/example-01.txt" : "input/input-01.txt"
+    input = get_input(@example ? "input/example-01.txt" : "input/input-01.txt")
     cnt = 0
     for i in 0..input.length - 3
       window1 = input[i].to_i + input[i + 1].to_i + input[i + 2].to_i

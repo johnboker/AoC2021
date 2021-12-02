@@ -4,7 +4,7 @@ class Day02
   include Solution
 
   def solve_part_1
-    input = (File.readlines @example ? "input/example-02.txt" : "input/input-02.txt").map do |line|
+    input = (get_input(@example ? "input/example-02.txt" : "input/input-02.txt")).map do |line|
       command, value = line.split " "
       [command.to_sym, value.to_i]
     end
@@ -29,7 +29,7 @@ class Day02
   end
 
   def solve_part_2
-    input = (File.readlines @example ? "input/example-02.txt" : "input/input-02.txt").map do |line|
+    input = (get_input(@example ? "input/example-02.txt" : "input/input-02.txt")).map do |line|
       command, value = line.split " "
       [command.to_sym, value.to_i]
     end
