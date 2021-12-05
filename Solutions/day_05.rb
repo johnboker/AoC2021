@@ -17,20 +17,15 @@ class Day05
 
   def solve1(lines)
     points_hash = {}
-    for line in lines
+
+    lines.each { |line|
       points = line.get_points
-
-      for p in points
-        k = p.to_s
-        a = points_hash.key?(k)
-        if !a
-          points_hash[k] = 1
-        else
-          points_hash[k] = points_hash[k] + 1
-        end
-      end
-    end
-
+      points.each { |point|
+        k = point.to_s
+        points_hash[k] = points_hash.key?(k) ? (points_hash[k] + 1) : 1
+      }
+    }
+ 
     count = points_hash.values.count { |p| p > 1 }
 
     puts count
@@ -55,7 +50,7 @@ class Day05
 
       x_delta = @p1.x > @p2.x ? -1 : 1
       y_delta = @p1.y > @p2.y ? -1 : 1
-      
+
       range = 0..(@p1.x - @p2.x).abs()
 
       if p1.x == p2.x
@@ -64,7 +59,7 @@ class Day05
       end
 
       if p1.y == p2.y
-        y_delta = 0 
+        y_delta = 0
       end
 
       x = @p1.x
