@@ -72,10 +72,5 @@ class Day05
     def to_s
       return "#{x},#{y}"
     end
-
-    def ==(other)
-      @x == other.x &&
-      @y == other.y
-    end
   end
 end
