@@ -53,51 +53,27 @@ class Day05
     def get_points
       points = Array.new()
 
-      if @p1.x == @p2.x
-        x = @p1.x
-        start_y = @p1.y
-        end_y = @p2.y
-        if start_y > end_y
-          start_y, end_y = end_y, start_y
-        end
-        for y in start_y..end_y
-          points.push(Point.new(x, y))
-        end
-      elsif @p1.y == @p2.y
-        y = @p1.y
-        start_x = @p1.x
-        end_x = @p2.x
-        if start_x > end_x
-          start_x, end_x = end_x, start_x
-        end
-        for x in start_x..end_x
-          points.push(Point.new(x, y))
-        end
-      else
-        start_x = @p1.x
-        start_y = @p1.y
+      x_delta = @p1.x > @p2.x ? -1 : 1
+      y_delta = @p1.y > @p2.y ? -1 : 1
+      
+      range = 0..(@p1.x - @p2.x).abs()
 
-        end_x = @p2.x
-        end_y = @p2.y
+      if p1.x == p2.x
+        x_delta = 0
+        range = 0..(@p1.y - @p2.y).abs()
+      end
 
-        x_delta = 1
-        if start_x > end_x
-          x_delta = -1
-        end
+      if p1.y == p2.y
+        y_delta = 0 
+      end
 
-        y_delta = 1
-        if start_y > end_y
-          y_delta = -1
-        end
+      x = @p1.x
+      y = @p1.y
 
-        x = start_x
-        y = start_y
-
-        for d in 0..(start_x - end_x).abs()
-          points.push(Point.new(x, y))
-          y = y + y_delta
-          x = x + x_delta
-        end
+      for d in range
+        points.push(Point.new(x, y))
+        y = y + y_delta
+        x = x + x_delta
       end
 
       return points
