@@ -38,7 +38,7 @@ class Day05
     end
 
     def to_s
-      return "#{p1} -> #{p2}"
+      return "#{@p1} -> #{@p2}"
     end
 
     def get_points
@@ -69,7 +69,7 @@ class Day05
     end
 
     def to_s
-      return "#{x},#{y}"
+      return "#{@x},#{@y}"
     end
   end
 end
