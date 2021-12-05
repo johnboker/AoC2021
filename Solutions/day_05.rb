@@ -19,8 +19,7 @@ class Day05
     points_hash = {}
 
     lines.each { |line|
-      line.get_points.each { |point|
-        k = point.to_s
+      line.get_points.map { |p| p.to_s }.each { |k|
         points_hash[k] = points_hash.key?(k) ? (points_hash[k] + 1) : 1
       }
     }
