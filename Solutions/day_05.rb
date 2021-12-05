@@ -19,16 +19,13 @@ class Day05
     points_hash = {}
 
     lines.each { |line|
-      points = line.get_points
-      points.each { |point|
+      line.get_points.each { |point|
         k = point.to_s
         points_hash[k] = points_hash.key?(k) ? (points_hash[k] + 1) : 1
       }
     }
- 
-    count = points_hash.values.count { |p| p > 1 }
 
-    puts count
+    puts points_hash.values.count { |p| p > 1 }
   end
 
   class Line
@@ -48,19 +45,9 @@ class Day05
     def get_points
       points = Array.new()
 
-      x_delta = @p1.x > @p2.x ? -1 : 1
-      y_delta = @p1.y > @p2.y ? -1 : 1
-
-      range = 0..(@p1.x - @p2.x).abs()
-
-      if p1.x == p2.x
-        x_delta = 0
-        range = 0..(@p1.y - @p2.y).abs()
-      end
-
-      if p1.y == p2.y
-        y_delta = 0
-      end
+      x_delta = @p1.x == @p2.x ? 0 : (@p1.x > @p2.x ? -1 : 1)
+      y_delta = @p1.y == @p2.y ? 0 : (@p1.y > @p2.y ? -1 : 1)
+      range = 0..(x_delta == 0 ? (@p1.y - @p2.y) : (@p1.x - @p2.x)).abs()
 
       x = @p1.x
       y = @p1.y
