@@ -49,13 +49,11 @@ class Day05
       y_delta = @p1.y == @p2.y ? 0 : (@p1.y > @p2.y ? -1 : 1)
       range = 0..(x_delta == 0 ? (@p1.y - @p2.y) : (@p1.x - @p2.x)).abs()
 
-      x = @p1.x
-      y = @p1.y
+      x, y = @p1.x, @p1.y
 
       for d in range
         points.push(Point.new(x, y))
-        y = y + y_delta
-        x = x + x_delta
+        x, y = x + x_delta, y + y_delta
       end
 
       return points
