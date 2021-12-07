@@ -10,14 +10,12 @@ class Day07
     min = locations.min()
     max = locations.max()
 
-    min_fuel = 999999999999999999
+    min_fuel = -1
     for i in min..max
-      fuel = locations.map {|l| fuel_to_move(l, i)}.sum()
-      if fuel < min_fuel
-        min_fuel = fuel
-      end
+      fuel = locations.map { |l| fuel_to_move_1(l, i) }.sum()
+      min_fuel = fuel if fuel < min_fuel || min_fuel < 0
     end
-     
+
     puts min_fuel
   end
 
@@ -28,18 +26,16 @@ class Day07
     min = locations.min()
     max = locations.max()
 
-    min_fuel = 999999999999999999
+    min_fuel = -1
     for i in min..max
-      fuel = locations.map {|l| fuel_to_move_2(l, i)}.sum()
-      if fuel < min_fuel
-        min_fuel = fuel
-      end
+      fuel = locations.map { |l| fuel_to_move_2(l, i) }.sum()
+      min_fuel = fuel if fuel < min_fuel || min_fuel < 0
     end
-     
+
     puts min_fuel
   end
 
-  def fuel_to_move(from, to)
+  def fuel_to_move_1(from, to)
     return (from - to).abs()
   end
 
