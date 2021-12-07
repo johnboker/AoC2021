@@ -1,3 +1,5 @@
+require "benchmark"
+
 module Solution
   @example
 
@@ -16,14 +18,23 @@ module Solution
   def solve
     puts "*** #{self.class.name} ***"
     puts "\nPart 1\n\n"
-    self.solve_part_1
+
+    time1 = Benchmark.measure {
+      self.solve_part_1
+    }
+
     puts "\nPart 2\n\n"
-    self.solve_part_2
+
+    time2 = Benchmark.measure {
+      self.solve_part_2
+    }
+
     puts "\n"
+    puts "Part 1 time: #{time1}", "Part 2 time: #{time2}"
   end
 
   def get_input(filename)
-    lines = File.readlines(filename, chomp: true, mode: 'r:bom|utf-8')
+    lines = File.readlines(filename, chomp: true, mode: "r:bom|utf-8")
     return lines
   end
 end
