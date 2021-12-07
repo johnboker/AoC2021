@@ -22,15 +22,15 @@ module Solution
     time1 = Benchmark.measure {
       self.solve_part_1
     }
-
+    puts "Time: #{time1}"
     puts "\nPart 2\n\n"
 
     time2 = Benchmark.measure {
       self.solve_part_2
     }
 
+    puts "Time: #{time2}"
     puts "\n"
-    puts "Part 1 time: #{time1}", "Part 2 time: #{time2}"
   end
 
   def get_input(filename)
