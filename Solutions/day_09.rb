@@ -47,7 +47,7 @@ class Day09
       end
     end
 
-    puts basin_sizes.sort_by { |s| -s }.first(3).inject(:*)
+    puts basin_sizes.sort.last(3).inject(:*)
   end
 
   def basin_size(grid, r, c)
