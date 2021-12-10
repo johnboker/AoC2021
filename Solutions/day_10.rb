@@ -16,7 +16,6 @@ class Day10
           opening_char = stack.pop()
           o = get_opening_character(c)
           if o != opening_char
-            # puts "Expected #{get_closing_character(opening_char)}, but found #{c} instead."
             score += get_score_1(c)
             break
           end
@@ -41,7 +40,6 @@ class Day10
           opening_char = stack.pop()
           o = get_opening_character(c)
           if o != opening_char
-            # puts "Expected #{get_closing_character(opening_char)}, but found #{c} instead."
             corrupt = true
             break
           end
